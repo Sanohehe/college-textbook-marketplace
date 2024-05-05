@@ -1,40 +1,41 @@
-CREATE DATABASE IF NOT EXISTS UniBook;
+-- Create the database if it does not exist
+CREATE DATABASE IF NOT EXISTS unibook;
 
-USE UniBook;
+-- Switch to the created database
+USE unibook;
 
--- Create User table only if it does not exist
-CREATE TABLE IF NOT EXISTS User (
-    UserID INT AUTO_INCREMENT PRIMARY KEY,
-    Username VARCHAR(255) NOT NULL UNIQUE,
-    Email VARCHAR(255) NOT NULL UNIQUE,
-    Password VARCHAR(255) NOT NULL
+-- Create the users table if it does not exist
+CREATE TABLE IF NOT EXISTS users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
 );
 
--- Create Textbook table only if it does not exist
-CREATE TABLE IF NOT EXISTS Textbook (
-    BookID INT AUTO_INCREMENT PRIMARY KEY,
-    Title VARCHAR(255) NOT NULL,
-    Author VARCHAR(255) NOT NULL,
-    Price DECIMAL(10, 2) NOT NULL,
-    `Condition` VARCHAR(100) NOT NULL
+-- Create the textbooks table if it does not exist
+CREATE TABLE IF NOT EXISTS textbooks (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    book_condition VARCHAR(100) NOT NULL
 );
 
--- Create Course table only if it does not exist
-CREATE TABLE IF NOT EXISTS Course (
-    CourseID INT AUTO_INCREMENT PRIMARY KEY,
-    CourseName VARCHAR(255) NOT NULL,
-    Department VARCHAR(255) NOT NULL
+-- Create the courses table if it does not exist
+CREATE TABLE IF NOT EXISTS courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_name VARCHAR(255) NOT NULL,
+    department VARCHAR(255) NOT NULL
 );
 
--- Create Transaction table only if it does not exist
-CREATE TABLE IF NOT EXISTS `Transaction` (
-    TransactionID INT AUTO_INCREMENT PRIMARY KEY,
-    BuyerID INT NOT NULL,
-    SellerID INT NOT NULL,
-    BookID INT NOT NULL,
-    TransactionDate DATE NOT NULL,
-    FOREIGN KEY (BuyerID) REFERENCES User(UserID),
-    FOREIGN KEY (SellerID) REFERENCES User(UserID),
-    FOREIGN KEY (BookID) REFERENCES Textbook(BookID)
+-- Create the transactions table if it does not exist
+CREATE TABLE IF NOT EXISTS transactions (
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    buyer_id INT NOT NULL,
+    seller_id INT NOT NULL,
+    book_id INT NOT NULL,
+    transaction_date DATE NOT NULL,
+    FOREIGN KEY (buyer_id) REFERENCES users(user_id),
+    FOREIGN KEY (seller_id) REFERENCES users(user_id),
+    FOREIGN KEY (book_id) REFERENCES textbooks(book_id)
 );
-

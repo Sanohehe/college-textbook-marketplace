@@ -3,23 +3,31 @@ package cs4370.unibooks.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "Textbook")
-public class textbook {
+@Table(name = "textbooks")
+public class Textbook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "book_id")
+    private Integer bookId;
+
+    @Column(name = "title", nullable = false)
     private String title;
+
+    @Column(name = "author", nullable = false)
     private String author;
-    private double price;
-    @Column(name = "'condition'")
+
+    @Column(name = "price", nullable = false)
+    private Double price;
+
+    @Column(name = "book_condition", nullable = false)
     private String condition;
 
-    // Constructor without parameters
-    public textbook() {
+    // Default constructor
+    public Textbook() {
     }
 
     // Constructor with parameters
-    public textbook(String title, String author, double price, String condition) {
+    public Textbook(String title, String author, Double price, String condition) {
         this.title = title;
         this.author = author;
         this.price = price;
@@ -27,12 +35,12 @@ public class textbook {
     }
 
     // Getters and Setters
-    public Long getId() {
-        return id;
+    public Integer getBookId() {
+        return bookId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBookId(Integer bookId) {
+        this.bookId = bookId;
     }
 
     public String getTitle() {
@@ -51,11 +59,11 @@ public class textbook {
         this.author = author;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -69,8 +77,8 @@ public class textbook {
 
     @Override
     public String toString() {
-        return "textbook{" +
-                "id=" + id +
+        return "Textbook{" +
+                "bookId=" + bookId +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", price=" + price +
