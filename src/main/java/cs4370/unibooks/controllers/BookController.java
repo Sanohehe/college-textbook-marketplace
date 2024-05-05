@@ -9,11 +9,12 @@ import cs4370.unibooks.models.Textbook;
 import cs4370.unibooks.repositories.BookRepository;
 
 @RestController
+@RequestMapping("/books")
 public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
-    @GetMapping("/books")
+    @GetMapping
     public List<Textbook> getBooks() {
         return bookRepository.findAll();
     }
