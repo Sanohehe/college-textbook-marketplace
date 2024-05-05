@@ -17,19 +17,4 @@ public class textbookController {
         this.textbookRepository = textbookRepository;
     }
 
-    @GetMapping("/all")
-    List<textbook> findAll() {
-        return textbookRepository.findAll();
-    }
-
-    @GetMapping("/{id}")
-    textbook findById(@PathVariable Long id) {
-        return textbookRepository.findById(id);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/add")
-    void addTextbook(@RequestBody textbook textbook) {
-        textbookRepository.addTextbook(textbook);
-    }
 }

@@ -1,10 +1,17 @@
 package cs4370.unibooks.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table (name = "Textbook")
 public class textbook {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String author;
     private double price;
+    @Column(name = "'condition'")
     private String condition;
 
     // Constructor without parameters
@@ -12,8 +19,7 @@ public class textbook {
     }
 
     // Constructor with parameters
-    public textbook(Long id, String title, String author, double price, String condition) {
-        this.id = id;
+    public textbook(String title, String author, double price, String condition) {
         this.title = title;
         this.author = author;
         this.price = price;
