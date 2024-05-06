@@ -8,3 +8,19 @@ College students often face significant expenses acquiring textbooks each semest
 
 ## Solution Description
 The solution is an online platform that facilitates the listing, searching, buying, and selling of textbooks among students. The platform will include robust user management, secure transaction processing, and intuitive navigation interfaces.
+
+## Technologies
+Springboot
+Springboot jpa
+Mysql
+Docker
+Springboot JDBC
+
+JDBC connection info:
+database name - unibook
+username - root
+password - mysqlpass
+
+### Contributuions
+Edward Hayashi: Everything.
+
